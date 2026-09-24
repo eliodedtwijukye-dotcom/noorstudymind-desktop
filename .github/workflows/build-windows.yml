@@ -22,12 +22,12 @@ jobs:
         run: npm install
 
       - name: Build the Windows installer
-        run: npm run dist
+        run: npx electron-builder --win --publish=never
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload the installer
         uses: actions/upload-artifact@v4
         with:
           name: StudyMind-UG-Windows-Installer
           path: dist/*.exe
-          
-          run: npx electron-builder --win --publish=never

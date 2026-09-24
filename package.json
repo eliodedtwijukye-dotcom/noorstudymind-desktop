@@ -1,0 +1,34 @@
+{
+  "name": "studymind-ug",
+  "version": "1.0.0",
+  "description": "StudyMind UG desktop app",
+  "main": "main.js",
+  "author": "StudyMind UG",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "ug.duckdns.studymind.desktop",
+    "productName": "StudyMind UG",
+    "icon": "build/icon.ico",
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "build/**"
+    ]
+  }
+}
